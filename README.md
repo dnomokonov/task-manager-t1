@@ -16,7 +16,7 @@
 
 1. **Склонируйте репозиторий**
 ```bash
-git clone task-manager-t1
+git clone https://github.com/dnomokonov/task-manager-t1.git
 cd task-manager-t1
 ```
 
