@@ -38,43 +38,6 @@ const App: React.FC = () => {
 
   const showControls = location.pathname === '/';
 
-  // Тестовые данные (потом удалить)
-  // localStorage.setItem('tasks', JSON.stringify(
-  //   [{
-  //     id: crypto.randomUUID(),
-  //     title: 'Fix bug',
-  //     description: '',
-  //     category: 'Bug',
-  //     status: 'To Do',
-  //     priority: 'High',
-  //   },
-  //   {
-  //     id: crypto.randomUUID(),
-  //     title: 'Add dark mode',
-  //     description: 'Implement dark mode toggle for better user experience',
-  //     category: 'Feature',
-  //     status: 'In Progress',
-  //     priority: 'Medium',
-  //   },
-  //   {
-  //     id: crypto.randomUUID(),
-  //     title: 'Update documentation',
-  //     description: 'Revise API documentation for clarity',
-  //     category: 'Documentation',
-  //     status: 'To Do',
-  //     priority: 'Low',
-  //   },
-  //   {
-  //     id: crypto.randomUUID(),
-  //     title: 'Refactor codebase',
-  //     description: 'Optimize task management module for performance',
-  //     category: 'Refactor',
-  //     status: 'To Do',
-  //     priority: 'Medium',
-  //   }
-  //   ])
-  // )
-
   return (
     <Layout className="layout-new">
       <Header className="header">
