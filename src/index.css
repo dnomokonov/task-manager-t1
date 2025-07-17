@@ -1,1 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
 @import "tailwindcss";
+
+* {
+    font-family: "Comfortaa", sans-serif;
+}
+
+.ant-typography,
+.ant-btn,
+.ant-card,
+.ant-select,
+.ant-form-item-label > label {
+    font-family: "Comfortaa", sans-serif;
+}
+
+.layout-container {
+    min-height: 100vh;
+}
