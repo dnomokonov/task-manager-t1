@@ -1,4 +1,4 @@
-import { TaskCategory, TaskStatus, TaskPriority } from '@shared/types/enums.ts'
+import {TaskCategory, TaskPriority, TaskStatus} from "@shared/types/enums";
 
 export interface Task {
     id: string;
@@ -9,5 +9,3 @@ export interface Task {
     priority: TaskPriority;
     createdAt: string;
 }
-
-export { TaskCategory, TaskStatus, TaskPriority };

@@ -6,6 +6,7 @@ import type { Task } from '../model/types';
 import Paragraph from "antd/es/typography/Paragraph";
 import {IconButton} from "../../../shared/ui/IconButton/IconButton";
 import { FaRegTrashCan } from "react-icons/fa6";
+import type {MouseEventHandler} from "react";
 
 export const TaskItem = ({ task }: { task: Task }) => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ export const TaskItem = ({ task }: { task: Task }) => {
         }
     };
 
-    const onDelete = (e: MouseEvent) => {
+    const onDelete: MouseEventHandler<HTMLSpanElement> = (e) => {
         e.stopPropagation();
         dispatch(deleteTask(task.id));
     };

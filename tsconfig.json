@@ -12,6 +12,5 @@
       "@features/*": ["src/features/*"],
       "@shared/*": ["src/shared/*"],
     }
-  },
-  "include": ["src"]
+  }
 }

@@ -1,5 +1,5 @@
 import { Layout, Typography } from "antd";
-import './HeaderPage.css'
+import '@shared/ui/HeaderPage/HeaderPage.css'
 
 const {Header} = Layout;
 const {Title} = Typography;
