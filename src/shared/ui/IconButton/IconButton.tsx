@@ -1,8 +1,8 @@
-import type {ReactNode} from "react";
+import type {ReactNode, MouseEventHandler} from "react";
 
 interface IconButtonProps {
     icon: ReactNode;
-    onClick: (e: MouseEvent) => void;
+    onClick: MouseEventHandler<HTMLSpanElement>;
     className?: string;
     danger?: boolean;
 }

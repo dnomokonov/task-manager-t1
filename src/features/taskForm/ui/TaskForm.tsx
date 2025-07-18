@@ -1,11 +1,7 @@
 import { Button, Form, Input, Select } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import {
-    type Task,
-    TaskCategory,
-    TaskPriority,
-    TaskStatus
-} from '@entities/task/model/types';
+import { type Task } from '@entities/task/model/types';
+import {TaskCategory, TaskPriority, TaskStatus} from "@shared/types/enums";
 import { createTask, updateTask } from '@entities/task/model/taskSlice';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { v4 as uuidv4 } from 'uuid';
@@ -15,7 +11,7 @@ export const TaskForm = ({ initialValues }: { initialValues?: Task }) => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    const onFinish = (values: any) => {
+    const onFinish = (values: Omit<Task, 'id' | 'createdAt'>) => {
         const task: Task = {
             ...values,
             id: initialValues?.id || uuidv4(),

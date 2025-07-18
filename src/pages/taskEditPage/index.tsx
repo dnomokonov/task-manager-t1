@@ -3,7 +3,7 @@ import {Button, Form, Input, Layout, Select} from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { selectTaskById } from '@entities/task/model/selectors';
 import { updateTask} from "@entities/task/model/taskSlice";
-import { TaskCategory, TaskStatus, TaskPriority } from '@entities/task/model/types';
+import { TaskCategory, TaskStatus, TaskPriority } from '@shared/types/enums';
 import type {Task} from "@entities/task/model/types";
 import HeaderPage from "@shared/ui/HeaderPage/HeaderPage";
 

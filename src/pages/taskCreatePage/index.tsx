@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Button, Form, Input, Select, Layout } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { createTask } from '@entities/task/model/taskSlice';
-import { TaskCategory, TaskStatus, TaskPriority } from '@entities/task/model/types';
+import { TaskCategory, TaskStatus, TaskPriority } from '@shared/types/enums';
 import type {Task} from "@entities/task/model/types";
 import HeaderPage from "@shared/ui/HeaderPage/HeaderPage";
 

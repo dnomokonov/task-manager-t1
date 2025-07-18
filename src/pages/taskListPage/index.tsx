@@ -17,7 +17,7 @@ export const TaskListPage = () => {
 
     const filteredTasks = tasks.filter(task => {
         const matchesSearch = task.title.toLowerCase().includes(search.toLowerCase()) ||
-            task.description.toLowerCase().includes(search.toLowerCase());
+            task.description?.toLowerCase().includes(search.toLowerCase());
         const matchesCategory = !categoryFilter || task.category === categoryFilter;
         const matchesStatus = !statusFilter || task.status === statusFilter;
         const matchesPriority = !priorityFilter || task.priority === priorityFilter;
