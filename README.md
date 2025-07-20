@@ -7,7 +7,7 @@
 
 # 🌐 Vercel
 
-Link: https://task-manager-t1-mocha.vercel.app/
+Link: https://task-manager-t1-henna.vercel.app/
 
 ## 🛠️ Стек технологий
 - React + TypeScript
