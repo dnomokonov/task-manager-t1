@@ -1,29 +1,29 @@
-import {useNavigate} from "react-router-dom";
-import {Button, Input, Select} from "antd";
-import {TaskCategory, TaskStatus, TaskPriority} from "@shared/types/enums";
+import { Button, Input, Select } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { TaskCategory, TaskStatus, TaskPriority } from '@shared/types/enums';
 
-interface TaskFiltersProps {
+interface TaskControlProps {
     search: string;
     setSearch: (search: string) => void;
-    categoryFilter: string | undefined;
-    setCategoryFilter: (categoryFilter: string | undefined) => void;
-    statusFilter: string | undefined;
-    setStatusFilter: (categoryFilter: string | undefined) => void;
-    priorityFilter: string | undefined;
-    setPriorityFilter: (categoryFilter: string | undefined) => void;
+    categoryFilter: TaskCategory | undefined;
+    setCategoryFilter: (categoryFilter: TaskCategory | undefined) => void;
+    statusFilter: TaskStatus | undefined;
+    setStatusFilter: (statusFilter: TaskStatus | undefined) => void;
+    priorityFilter: TaskPriority | undefined;
+    setPriorityFilter: (priorityFilter: TaskPriority | undefined) => void;
 }
 
 export const TaskControl = ({
-    search,
-    setSearch,
-    categoryFilter,
-    setCategoryFilter,
-    statusFilter,
-    setStatusFilter,
-    priorityFilter,
-    setPriorityFilter
-}: TaskFiltersProps) => {
-    const navigation = useNavigate();
+                                search,
+                                setSearch,
+                                categoryFilter,
+                                setCategoryFilter,
+                                statusFilter,
+                                setStatusFilter,
+                                priorityFilter,
+                                setPriorityFilter,
+                            }: TaskControlProps) => {
+    const navigate = useNavigate();
 
     return (
         <div className="flex flex-col sm:flex-row gap-4 mb-8 items-center">
@@ -33,7 +33,7 @@ export const TaskControl = ({
                 onChange={setCategoryFilter}
                 value={categoryFilter}
                 className="w-full sm:w-1/4"
-                options={Object.values(TaskCategory).map(value => ({ label: value, value }))}
+                options={Object.entries(TaskCategory).map(([key, value]) => ({ label: value, value: key }))}
             />
             <Select
                 placeholder="Status"
@@ -41,7 +41,7 @@ export const TaskControl = ({
                 onChange={setStatusFilter}
                 value={statusFilter}
                 className="w-full sm:w-1/4"
-                options={Object.values(TaskStatus).map(value => ({ label: value, value }))}
+                options={Object.entries(TaskStatus).map(([key, value]) => ({ label: value, value: key }))}
             />
             <Select
                 placeholder="Priority"
@@ -49,7 +49,7 @@ export const TaskControl = ({
                 onChange={setPriorityFilter}
                 value={priorityFilter}
                 className="w-full sm:w-1/4"
-                options={Object.values(TaskPriority).map(value => ({ label: value, value }))}
+                options={Object.entries(TaskPriority).map(([key, value]) => ({ label: value, value: key }))}
             />
             <Input
                 placeholder="Search"
@@ -59,11 +59,11 @@ export const TaskControl = ({
             />
             <Button
                 type="primary"
-                onClick={() => navigation('/task/new')}
+                onClick={() => navigate('/task/new')}
                 className="w-full sm:w-auto"
             >
                 Add Task
             </Button>
         </div>
-    )
-}
+    );
+};
