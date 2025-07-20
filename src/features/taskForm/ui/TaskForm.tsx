@@ -1,4 +1,4 @@
-import { Button, Form, Input, Select, message } from 'antd';
+import { Button, Form, Input, Select, App } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { type Task } from '@entities/task/model/types';
 import { TaskCategory, TaskStatus, TaskPriority } from '@shared/types/enums'
@@ -10,11 +10,12 @@ import type { RootState } from '@/app/store';
 
 export const TaskForm = () => {
     const [form] = Form.useForm();
+    const { message } = App.useApp();
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const { tasks, loading, error } = useSelector((state: RootState) => state.tasks);
-    const initialValues = id ? tasks.find(task => Number(task.id) === Number(id)) : undefined;
+    const initialValues = id ? tasks.find(task => task.id === id) : undefined;
 
     useEffect(() => {
         if (initialValues) {

@@ -1,21 +1,10 @@
-import { Layout, message } from 'antd';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { Layout } from 'antd';
 import { TaskForm } from '@features/taskForm/ui/TaskForm';
 import HeaderPage from '@shared/ui/HeaderPage/HeaderPage';
-import { type RootState } from '@/app/store';
 
 const { Content } = Layout;
 
 export const TaskEditPage = () => {
-    const { error } = useSelector((state: RootState) => state.tasks);
-
-    useEffect(() => {
-        if (error) {
-            message.error(error);
-        }
-    }, [error]);
-
     return (
         <Layout className="layout-container">
             <HeaderPage />
