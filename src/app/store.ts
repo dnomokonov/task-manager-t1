@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import taskReducer from '@/entities/task/model/taskSlice';
+import taskReducer from '@entities/task/model/taskSlice';
 
 export const store = configureStore({
     reducer: {
-        task: taskReducer,
-    }
+        tasks: taskReducer,
+    },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

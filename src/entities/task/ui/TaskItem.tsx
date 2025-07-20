@@ -1,38 +1,26 @@
-import { Card, Tag } from 'antd';
+import type { MouseEvent } from 'react';
+import { Card, Tag, message } from 'antd';
+import { FaRegTrashCan } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { deleteTask } from '../model/taskSlice';
+import { fetchDeleteTask } from '../model/taskSlice';
 import type { Task } from '../model/types';
-import Paragraph from "antd/es/typography/Paragraph";
-import {IconButton} from "../../../shared/ui/IconButton/IconButton";
-import { FaRegTrashCan } from "react-icons/fa6";
-import type {MouseEventHandler} from "react";
+import Paragraph from 'antd/es/typography/Paragraph';
+import { IconButton } from '@/shared/ui/IconButton/IconButton';
+import {getPriorityColor, getStatusColor} from "@shared/utils/taskUtils.ts";
 
 export const TaskItem = ({ task }: { task: Task }) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
-    const getStatusColor = (status: string) => {
-        switch (status) {
-            case 'To Do': return 'blue';
-            case 'In Progress': return 'volcano';
-            case 'Done': return 'green';
-            default: return 'gray';
-        }
-    };
-
-    const getPriorityColor = (priority: string) => {
-        switch (priority) {
-            case 'Low': return 'cyan';
-            case 'Medium': return 'orange';
-            case 'High': return 'red';
-            default: return 'gray';
-        }
-    };
-
-    const onDelete: MouseEventHandler<HTMLSpanElement> = (e) => {
+    const onDelete = async (e: MouseEvent) => {
         e.stopPropagation();
-        dispatch(deleteTask(task.id));
+        try {
+            await dispatch(fetchDeleteTask(task.id)).unwrap();
+            message.success('Task deleted');
+        } catch (e) {
+            message.error(`Error deleting task: ${e}`);
+        }
     };
 
     return (
